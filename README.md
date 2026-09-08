@@ -1,6 +1,6 @@
 # 🌐 Social Link Profile
 
-Solución al desafío **Grid Landing Page** de [Frontend Mentor](https://www.frontendmentor.io).  
+Solución al desafío **Social link profile** de [Frontend Mentor](https://www.frontendmentor.io).  
 Este proyecto consiste en una landing page construida únicamente con **HTML** y **CSS**, aplicando **CSS Grid** para la disposición de los elementos.
 
 ![Desktop Design](/preview/desktop-design.jpg)
