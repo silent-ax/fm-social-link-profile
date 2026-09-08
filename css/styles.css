@@ -174,16 +174,17 @@ BASE
 ========================= */
 @layer base {
   :root {
-    /* =========================
-    TODO: CONFIG
-    ========================= */
+    --green: hsl(75, 94%, 57%);
 
-    --fz-xs: 0.6rem;
-    --fz-sm: 0.8rem;
-    --fz-nm: 1rem;
-    --fz-lg: 1.5rem;
-    --fz-xl: 2rem;
-    --fz-xxl: 3rem;
+    --white: hsl(0, 0%, 100%);
+    --white-1: hsl(0, 0%, 80%);
+
+    --grey-700: hsl(0, 0%, 20%);
+    --grey-800: hsl(0, 0%, 12%);
+    --grey-900: hsl(0, 0%, 8%);
+
+    --border-radius-1: 8px;
+    --border-radius-2: 20px;
 
     --sp-xxs: 0.25rem;
     --sp-xs: 0.5rem;
@@ -192,11 +193,19 @@ BASE
     --sp-lg: 1.5rem;
     --sp-xl: 2rem;
     --sp-xxl: 3rem;
+
+    --ff-inter: "Inter", sans-serif;
+  }
+
+  @font-face {
+    font-family: "Inter";
+    src: url(/assets/fonts/Inter-VariableFont_slnt\,wght.ttf);
   }
 
   body {
-    font-family: sans-serif;
     -webkit-font-smoothing: antialiased;
+    font-size: 14px;
+    font-family: var(--ff-inter);
   }
 }
 
@@ -204,16 +213,93 @@ BASE
 COMPONENTS
 ========================= */
 @layer components {
-}
+  /* =========================
+  PAGE
+  ========================= */
+  .page {
+    background-color: var(--grey-900);
+    height: 100svh;
+    display: grid;
+    place-items: center;
+    padding-inline: var(--sp-lg);
+  }
+  /* =========================
+  PROFILE
+  ========================= */
+  .profile {
+    width: min(100%, 20rem);
+    background-color: var(--grey-800);
+    border-radius: var(--border-radius-1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--sp-lg);
+    padding: var(--sp-lg);
+  }
+  .profile__image {
+    width: 5.5rem;
+    border-radius: 50%;
+  }
+  .profile__header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-xs);
+    align-items: center;
+  }
+  .profile__name {
+    font-size: 1.52rem;
+    font-weight: 600;
+    color: var(--white);
+  }
+  .profile__location {
+    color: var(--green);
+    font-weight: 600;
+    letter-spacing: 0.2px;
+  }
+  .profile__description {
+    color: var(--white-1);
+    font-weight: 400;
+  }
 
-/* =========================
-UTILITIES
-========================= */
-@layer utilities {
+  /* =========================
+  SOCIAL LINKS
+  ========================= */
+  .social-links {
+    width: 100%;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-nm);
+  }
+  .social-links__link {
+    display: block;
+    text-align: center;
+    width: 100%;
+    color: var(--white);
+    background-color: var(--grey-700);
+    padding-block: var(--sp-sm);
+    border-radius: var(--border-radius-1);
+    font-weight: 600;
+    letter-spacing: 0.2px;
+
+    &:hover {
+      background-color: var(--green);
+      color: var(--grey-700);
+    }
+  }
 }
 
 /* =========================
 RESPONSIVE
 ========================= */
 @layer responsive {
+  /* =========================
+  DESKTOP
+  ========================= */
+  @media screen and (min-width: 768px) {
+    .profile {
+      padding: var(--sp-xxl);
+      width: 25rem;
+    }
+  }
 }
